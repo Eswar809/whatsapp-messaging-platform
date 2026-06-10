@@ -1,8 +1,8 @@
-# Pratham WA Bot — Event-Driven WhatsApp Messaging Platform
+# Event-Driven WhatsApp Messaging Platform
 
 A 24/7 WhatsApp automation platform for coaching institutes, built on the **official WhatsApp Cloud API** with **Google Gemini** as the AI layer. It runs an institute's admissions desk end-to-end — FAQ answers, brochure delivery, demo-class booking (Google Calendar + Meet), Razorpay payments, doubt triage to faculty, a daily MCQ engine with a weekly leaderboard, and automatic re-engagement of quiet students.
 
-Built and maintained by [Deevi Eswar](https://github.com/Eswar809) at **Pratham AI Labs**.
+Built and maintained by [Deevi Eswar](https://github.com/Eswar809).
 
 ---
 
