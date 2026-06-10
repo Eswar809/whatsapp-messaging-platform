@@ -1,0 +1,52 @@
+[
+  {
+    "slug": "ca-mentorship-program",
+    "name": "CA Mentorship Program",
+    "feeInPaise": 999900,
+    "description": "Structured 1:1 + group mentorship for CA students across Foundation, Inter and Final levels.",
+    "batchInfo": "Rolling enrolment · 3-month program",
+    "facultyName": "CA Anjali Reddy",
+    "brochureUrl": null,
+    "priceList": "Fee: ₹9,999 for 3 months\nEMI: 2 instalments of ₹5,000\nIncludes: personalized study plan, weekly 1:1 mentoring, daily doubt support, mock-test review and motivation check-ins"
+  },
+  {
+    "slug": "cma-mentorship-program",
+    "name": "CMA Mentorship Program",
+    "feeInPaise": 899900,
+    "description": "Cost and management focused mentorship for CMA students preparing for ICMAI exams.",
+    "batchInfo": "Rolling enrolment · 3-month program",
+    "facultyName": "CMA Rakesh Iyer",
+    "brochureUrl": null,
+    "priceList": "Fee: ₹8,999 for 3 months\nEMI: 2 instalments of ₹4,500\nIncludes: study plan, weekly mentoring, costing and FM doubt support, mock-test review and exam strategy sessions"
+  },
+  {
+    "slug": "cs-mentorship-program",
+    "name": "CS Mentorship Program",
+    "feeInPaise": 849900,
+    "description": "Company law and governance focused mentorship for CS students preparing for ICSI exams.",
+    "batchInfo": "Next cohort: 1 July 2026",
+    "facultyName": "CS Meera Nair",
+    "brochureUrl": null,
+    "priceList": "Fee: ₹8,499 for 3 months\nEMI: 2 instalments of ₹4,250\nIncludes: study plan, weekly mentoring, law and governance doubt support, mock-test review and motivation check-ins"
+  },
+  {
+    "slug": "premium-1to1-mentorship",
+    "name": "1:1 Premium Mentorship",
+    "feeInPaise": 1999900,
+    "description": "Dedicated one-on-one mentorship with a senior mentor for fully personalized exam strategy and accountability.",
+    "batchInfo": "Rolling enrolment · 3-month program",
+    "facultyName": "CA Vikram Shah",
+    "brochureUrl": null,
+    "priceList": "Fee: ₹19,999 for 3 months\nEMI: 3 instalments of ₹6,700\nIncludes: twice-weekly 1:1 sessions, priority WhatsApp doubt support, detailed mock-test review, custom study plan and personal accountability tracking"
+  },
+  {
+    "slug": "group-mentorship-tier",
+    "name": "Group Mentorship",
+    "feeInPaise": 499900,
+    "description": "Affordable small-group mentorship cohort with shared strategy sessions and peer motivation.",
+    "batchInfo": "Next cohort: 15 June 2026",
+    "facultyName": "CA Sneha Kulkarni",
+    "brochureUrl": null,
+    "priceList": "Fee: ₹4,999 for 3 months\nEMI: not applicable\nIncludes: weekly group mentoring (max 10 students), shared study plan, group doubt sessions, mock-test review and regular motivation check-ins"
+  }
+]

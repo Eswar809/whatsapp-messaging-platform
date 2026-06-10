@@ -1,0 +1,251 @@
+// wa-edu-bot Prisma schema
+// Status/category fields are plain String columns (Prisma enums were avoided
+// for portability — allowed values live as TS unions in src/config/constants.ts).
+// Local dev with SQLite: change provider to "sqlite" and set DATABASE_URL=file:./dev.db,
+// then run `npm run db:push`.
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+// ---------------------------------------------------------------------------
+// Core
+// ---------------------------------------------------------------------------
+
+model Student {
+  id               String    @id @default(cuid())
+  waId             String    @unique // WhatsApp id (intl phone, no +)
+  phone            String?
+  name             String?
+  status           String    @default("LEAD") // StudentStatus union
+  optedIn          Boolean   @default(true) // consent for proactive/template sends
+  courseInterest   String?
+  enrolledCourseId String?
+  enrolledCourse   Course?   @relation("Enrolment", fields: [enrolledCourseId], references: [id])
+  lastInboundAt    DateTime? // drives 24h window + re-engagement
+  lastOutboundAt   DateTime?
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+
+  messages   ConversationMessage[]
+  session    Session?
+  tickets    DoubtTicket[]
+  deliveries McqDelivery[]
+  attempts   McqAttempt[]
+  bookings   Booking[]
+  payments   Payment[]
+  reengages  ReengagementLog[]
+  broadcasts BroadcastRecipient[]
+  snapshots  LeaderboardSnapshot[]
+
+  @@index([status, optedIn])
+  @@index([lastInboundAt])
+}
+
+model Course {
+  id          String     @id @default(cuid())
+  slug        String     @unique // used inside interactive button ids
+  name        String
+  feeInPaise  Int // money as integer paise
+  description String?
+  batchInfo   String?
+  facultyName String?
+  active      Boolean    @default(true)
+  brochures   Brochure[]
+  enrolments  Student[]  @relation("Enrolment")
+}
+
+model Brochure {
+  id        String  @id @default(cuid())
+  courseId  String
+  course    Course  @relation(fields: [courseId], references: [id])
+  title     String
+  mediaId   String? // pre-uploaded WhatsApp media id (preferred)
+  link      String? // public URL fallback
+  priceList String? // text price summary sent alongside
+}
+
+model Mentor {
+  id         String        @id @default(cuid())
+  name       String
+  waNumber   String // where handoffs/tickets are sent
+  subjects   String // CSV of subjects (SQLite has no String[])
+  calendarId String? // Google Calendar id for bookings
+  active     Boolean       @default(true)
+  tickets    DoubtTicket[]
+  bookings   Booking[]
+}
+
+model ConversationMessage {
+  id          String   @id @default(cuid())
+  studentId   String
+  student     Student  @relation(fields: [studentId], references: [id])
+  direction   String // MessageDirection union: INBOUND | OUTBOUND
+  channel     String? // MessageChannel union: SESSION | TEMPLATE (set for OUTBOUND)
+  waMessageId String?  @unique // inbound id -> idempotency / dedupe
+  type        String // text | interactive | document | template | ...
+  body        String
+  createdAt   DateTime @default(now())
+
+  @@index([studentId, createdAt])
+}
+
+model Session {
+  id        String    @id @default(cuid())
+  studentId String    @unique
+  student   Student   @relation(fields: [studentId], references: [id])
+  flow      String    @default("NONE") // FlowName union
+  step      String    @default("")
+  scratch   String    @default("{}") // JSON blob of collected answers
+  expiresAt DateTime?
+  updatedAt DateTime  @updatedAt
+}
+
+model DoubtTicket {
+  id         String   @id @default(cuid())
+  studentId  String
+  student    Student  @relation(fields: [studentId], references: [id])
+  subject    String
+  difficulty String // Difficulty union
+  question   String
+  status     String   @default("OPEN") // TicketStatus union
+  mentorId   String?
+  mentor     Mentor?  @relation(fields: [mentorId], references: [id])
+  createdAt  DateTime @default(now())
+
+  @@index([status])
+}
+
+// ---------------------------------------------------------------------------
+// MCQ / leaderboard
+// ---------------------------------------------------------------------------
+
+model McqQuestion {
+  id           String        @id @default(cuid())
+  subject      String
+  difficulty   String        @default("MEDIUM") // Difficulty union
+  question     String
+  options      String // JSON string[]
+  correctIndex Int
+  explanation  String
+  active       Boolean       @default(true)
+  deliveries   McqDelivery[]
+  attempts     McqAttempt[]
+}
+
+model McqDelivery {
+  id         String      @id @default(cuid())
+  studentId  String
+  student    Student     @relation(fields: [studentId], references: [id])
+  questionId String
+  question   McqQuestion @relation(fields: [questionId], references: [id])
+  status     String      @default("SENT") // DeliveryStatus union
+  sentAt     DateTime    @default(now())
+  attempt    McqAttempt?
+
+  @@unique([studentId, questionId]) // never send same Q twice
+  @@index([studentId, sentAt])
+}
+
+model McqAttempt {
+  id          String      @id @default(cuid())
+  deliveryId  String      @unique
+  delivery    McqDelivery @relation(fields: [deliveryId], references: [id])
+  studentId   String
+  student     Student     @relation(fields: [studentId], references: [id])
+  questionId  String
+  question    McqQuestion @relation(fields: [questionId], references: [id])
+  chosenIndex Int
+  correct     Boolean
+  points      Int         @default(0) // denormalised for fast leaderboard sums
+  answeredAt  DateTime    @default(now())
+  isoYearWeek String // "2026-W21" weekly bucket
+
+  @@index([isoYearWeek])
+  @@index([studentId, isoYearWeek])
+}
+
+model LeaderboardSnapshot {
+  id          String   @id @default(cuid())
+  isoYearWeek String
+  studentId   String
+  student     Student  @relation(fields: [studentId], references: [id])
+  rank        Int
+  points      Int
+  createdAt   DateTime @default(now())
+
+  @@unique([isoYearWeek, studentId])
+}
+
+// ---------------------------------------------------------------------------
+// Bookings / payments
+// ---------------------------------------------------------------------------
+
+model Booking {
+  id              String   @id @default(cuid())
+  studentId       String
+  student         Student  @relation(fields: [studentId], references: [id])
+  mentorId        String?
+  mentor          Mentor?  @relation(fields: [mentorId], references: [id])
+  type            String // BookingType union: DEMO | ONE_TO_ONE
+  status          String   @default("REQUESTED") // BookingStatus union
+  slotStart       DateTime
+  slotEnd         DateTime
+  calendarEventId String?
+  meetLink        String?
+  createdAt       DateTime @default(now())
+}
+
+model Payment {
+  id             String    @id @default(cuid())
+  studentId      String
+  student        Student   @relation(fields: [studentId], references: [id])
+  courseId       String?
+  amountInPaise  Int
+  status         String    @default("CREATED") // PaymentStatus union
+  razorpayLinkId String?   @unique
+  shortUrl       String?
+  createdAt      DateTime  @default(now())
+  paidAt         DateTime?
+}
+
+// ---------------------------------------------------------------------------
+// Broadcasts / re-engagement
+// ---------------------------------------------------------------------------
+
+model BroadcastJob {
+  id           String               @id @default(cuid())
+  type         String               @default("RESULT_BLAST") // JobType union
+  templateName String
+  note         String?
+  createdAt    DateTime             @default(now())
+  recipients   BroadcastRecipient[]
+}
+
+model BroadcastRecipient {
+  id        String       @id @default(cuid())
+  jobId     String
+  job       BroadcastJob @relation(fields: [jobId], references: [id])
+  studentId String
+  student   Student      @relation(fields: [studentId], references: [id])
+  status    String       @default("SENT") // DeliveryStatus union
+  error     String?
+  sentAt    DateTime     @default(now())
+
+  @@unique([jobId, studentId])
+}
+
+model ReengagementLog {
+  id        String   @id @default(cuid())
+  studentId String
+  student   Student  @relation(fields: [studentId], references: [id])
+  status    String   @default("SENT") // DeliveryStatus union
+  sentAt    DateTime @default(now())
+
+  @@index([studentId, sentAt])
+}

@@ -1,0 +1,32 @@
+[
+  {
+    "name": "CA Anjali Reddy",
+    "waNumber": "919900000001",
+    "subjects": "Audit,FR,Financial Reporting,Accounting,Advanced Accounting,CA",
+    "calendarId": null
+  },
+  {
+    "name": "CMA Rakesh Iyer",
+    "waNumber": "919900000002",
+    "subjects": "Costing,Cost Management,Cost Accounting,Financial Management,Strategy,CMA",
+    "calendarId": null
+  },
+  {
+    "name": "CS Meera Nair",
+    "waNumber": "919900000003",
+    "subjects": "Law,Company Law,Corporate Law,Governance,Compliance,CS",
+    "calendarId": null
+  },
+  {
+    "name": "CA Vikram Shah",
+    "waNumber": "919900000004",
+    "subjects": "Tax,Taxation,Direct Tax,Indirect Tax,GST,Strategy,CA",
+    "calendarId": null
+  },
+  {
+    "name": "CA Sneha Kulkarni",
+    "waNumber": "919900000005",
+    "subjects": "Audit,Law,Costing,FR,Strategy,CMA,CS",
+    "calendarId": null
+  }
+]

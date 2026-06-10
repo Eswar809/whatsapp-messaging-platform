@@ -1,0 +1,17 @@
+node_modules
+.env
+.env.*
+!.env.example
+!.env.production.example
+*.db
+prisma/*.db
+dist
+.git
+.gitignore
+logs
+*.log
+npm-debug.log*
+.DS_Store
+Dockerfile
+.dockerignore
+docker-compose.yml

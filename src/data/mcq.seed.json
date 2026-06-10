@@ -1,0 +1,189 @@
+[
+  {
+    "subject": "Auditing",
+    "difficulty": "MEDIUM",
+    "question": "SA 700 primarily deals with:",
+    "options": [
+      "Forming an opinion and reporting on financial statements",
+      "Communication with those charged with governance",
+      "Audit materiality",
+      "Identifying and assessing risks of material misstatement"
+    ],
+    "correctIndex": 0,
+    "explanation": "SA 700 (Revised) deals with the auditor's responsibility to form an opinion on the financial statements and the form & content of the auditor's report."
+  },
+  {
+    "subject": "Auditing",
+    "difficulty": "EASY",
+    "question": "The overall objectives of the independent auditor are dealt with in:",
+    "options": ["SA 200", "SA 230", "SA 500", "SA 700"],
+    "correctIndex": 0,
+    "explanation": "SA 200 covers the overall objectives of the independent auditor and the conduct of an audit in accordance with Standards on Auditing."
+  },
+  {
+    "subject": "Auditing",
+    "difficulty": "MEDIUM",
+    "question": "When the financial statements are free from material misstatement, the opinion expressed is:",
+    "options": ["Qualified opinion", "Adverse opinion", "Unmodified (clean) opinion", "Disclaimer of opinion"],
+    "correctIndex": 2,
+    "explanation": "An unmodified (clean) opinion is expressed when the financial statements give a true and fair view and are free from material misstatement."
+  },
+  {
+    "subject": "Financial Reporting",
+    "difficulty": "HARD",
+    "question": "Under Ind AS 115, revenue is recognised when:",
+    "options": [
+      "Cash is received",
+      "The entity satisfies a performance obligation by transferring control",
+      "Goods are dispatched",
+      "The invoice is raised"
+    ],
+    "correctIndex": 1,
+    "explanation": "Ind AS 115 recognises revenue when (or as) the entity satisfies a performance obligation by transferring control of a good or service to the customer."
+  },
+  {
+    "subject": "Accounting",
+    "difficulty": "EASY",
+    "question": "The Written Down Value (WDV) method charges depreciation:",
+    "options": ["Equally every year", "On the reducing book value each year", "Only in the last year", "Based on units produced"],
+    "correctIndex": 1,
+    "explanation": "Under the WDV (diminishing balance) method, depreciation is charged on the reducing book value, so the amount decreases each year."
+  },
+  {
+    "subject": "Accounting",
+    "difficulty": "MEDIUM",
+    "question": "As per AS 2 / Ind AS 2, inventories are valued at:",
+    "options": ["Cost", "Net realisable value", "Lower of cost and net realisable value", "Market value"],
+    "correctIndex": 2,
+    "explanation": "Inventories are valued at the lower of cost and net realisable value (NRV)."
+  },
+  {
+    "subject": "Costing",
+    "difficulty": "MEDIUM",
+    "question": "Contribution per unit is calculated as:",
+    "options": [
+      "Selling price - Variable cost per unit",
+      "Selling price - Fixed cost per unit",
+      "Fixed cost - Variable cost",
+      "Total sales - Total cost"
+    ],
+    "correctIndex": 0,
+    "explanation": "Contribution = Selling price per unit - Variable cost per unit. It contributes towards recovering fixed costs and then profit."
+  },
+  {
+    "subject": "Costing",
+    "difficulty": "MEDIUM",
+    "question": "Margin of safety is:",
+    "options": [
+      "Actual sales - Break-even sales",
+      "Fixed cost / P-V ratio",
+      "Sales - Variable cost",
+      "Profit / P-V ratio"
+    ],
+    "correctIndex": 0,
+    "explanation": "Margin of safety = Actual sales - Break-even sales. It shows how much sales can fall before the firm makes a loss."
+  },
+  {
+    "subject": "Costing",
+    "difficulty": "MEDIUM",
+    "question": "The Profit-Volume (P/V) ratio is equal to:",
+    "options": ["Contribution / Sales", "Fixed cost / Sales", "Profit / Sales", "Variable cost / Sales"],
+    "correctIndex": 0,
+    "explanation": "P/V ratio = Contribution / Sales. It measures the rate at which profit changes with a change in sales volume."
+  },
+  {
+    "subject": "Costing",
+    "difficulty": "HARD",
+    "question": "Material Cost Variance is computed as:",
+    "options": [
+      "Standard cost of actual output - Actual cost",
+      "Standard price x Actual quantity",
+      "Actual cost - Budgeted cost",
+      "Standard quantity x Actual price"
+    ],
+    "correctIndex": 0,
+    "explanation": "Material Cost Variance = (Standard cost of materials for actual output) - (Actual cost of materials). It splits into price and usage variances."
+  },
+  {
+    "subject": "Financial Management",
+    "difficulty": "MEDIUM",
+    "question": "WACC stands for:",
+    "options": [
+      "Weighted Average Cost of Capital",
+      "Working Average Capital Cost",
+      "Weighted Annual Capital Charge",
+      "Working Asset Cost Centre"
+    ],
+    "correctIndex": 0,
+    "explanation": "WACC = Weighted Average Cost of Capital - the average rate a firm pays to finance its assets, weighted by the proportion of each source of capital."
+  },
+  {
+    "subject": "Taxation",
+    "difficulty": "MEDIUM",
+    "question": "Under GST, the threshold turnover for registration of an exclusive supplier of goods (normal-category states) is:",
+    "options": ["Rs 10 lakh", "Rs 20 lakh", "Rs 40 lakh", "Rs 1 crore"],
+    "correctIndex": 2,
+    "explanation": "For exclusive suppliers of goods in normal-category states, the GST registration threshold is Rs 40 lakh (Rs 20 lakh for services)."
+  },
+  {
+    "subject": "Taxation",
+    "difficulty": "EASY",
+    "question": "The maximum deduction available under Section 80C is:",
+    "options": ["Rs 1,00,000", "Rs 1,50,000", "Rs 2,00,000", "Rs 2,50,000"],
+    "correctIndex": 1,
+    "explanation": "Section 80C allows a maximum deduction of Rs 1,50,000 per financial year for specified investments/payments such as PPF, LIC, ELSS, etc."
+  },
+  {
+    "subject": "Law",
+    "difficulty": "MEDIUM",
+    "question": "As per the Companies Act 2013, the minimum number of directors in a public company is:",
+    "options": ["1", "2", "3", "7"],
+    "correctIndex": 2,
+    "explanation": "A public company must have a minimum of 3 directors (private company 2, One Person Company 1) - Section 149."
+  },
+  {
+    "subject": "Law",
+    "difficulty": "MEDIUM",
+    "question": "As per the Companies Act 2013, the quorum for a general meeting of a private company is:",
+    "options": ["2 members personally present", "5 members", "7 members", "15 members"],
+    "correctIndex": 0,
+    "explanation": "For a private company, the quorum for a general meeting is 2 members personally present (Section 103)."
+  },
+  {
+    "subject": "Company Law",
+    "difficulty": "HARD",
+    "question": "The quorum for a Board meeting under Section 174 of the Companies Act 2013 is:",
+    "options": [
+      "One-third of total strength or 2 directors, whichever is higher",
+      "Majority of directors",
+      "2 directors in all cases",
+      "One-fourth of total strength"
+    ],
+    "correctIndex": 0,
+    "explanation": "Section 174: the quorum for a Board meeting is one-third of total strength or two directors, whichever is higher."
+  },
+  {
+    "subject": "Company Law",
+    "difficulty": "HARD",
+    "question": "The first auditor of a company (other than a Government company) is appointed by the Board within:",
+    "options": ["30 days of registration", "60 days of registration", "90 days of registration", "the first AGM"],
+    "correctIndex": 0,
+    "explanation": "Under Section 139(6), the Board must appoint the first auditor within 30 days of the company's registration."
+  },
+  {
+    "subject": "Company Law",
+    "difficulty": "HARD",
+    "question": "Apart from listed companies, a whole-time Company Secretary must be appointed by every company having a paid-up share capital of at least:",
+    "options": ["Rs 5 crore", "Rs 10 crore", "Rs 50 crore", "Rs 100 crore"],
+    "correctIndex": 1,
+    "explanation": "Under Rule 8A of the Companies (Appointment and Remuneration of Managerial Personnel) Rules, companies with paid-up share capital of Rs 10 crore or more must appoint a whole-time Company Secretary."
+  },
+  {
+    "subject": "Economics",
+    "difficulty": "EASY",
+    "question": "If a small rise in price causes a large fall in quantity demanded, demand is:",
+    "options": ["Perfectly inelastic", "Inelastic", "Elastic", "Unitary elastic"],
+    "correctIndex": 2,
+    "explanation": "When a small change in price causes a large change in quantity demanded, demand is elastic (price elasticity of demand > 1)."
+  }
+]

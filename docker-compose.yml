@@ -1,0 +1,47 @@
+# wa-edu-bot — local/production container orchestration
+#
+# Default: runs the app with SQLite (file DB persisted via the ./prisma volume).
+# To use Postgres instead:
+#   1. Uncomment the `postgres` service below.
+#   2. In .env set: DATABASE_URL=postgresql://wabot:wabot@postgres:5432/wabot
+#   3. In prisma/schema.prisma set: provider = "postgresql"
+#   4. Uncomment the `depends_on` block under the `app` service.
+#   5. Run migrations once:  docker compose run --rm app npm run db:push
+#      Seed (optional):       docker compose run --rm app npm run db:seed
+
+services:
+  app:
+    build: .
+    env_file: .env
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
+    # Persists ./prisma/dev.db on the host when using SQLite.
+    # Safe to leave mounted with Postgres (schema/seed live here too).
+    volumes:
+      - ./prisma:/app/prisma
+    # --- Enable when using the postgres service below ---
+    # depends_on:
+    #   postgres:
+    #     condition: service_healthy
+
+  # --- Optional Postgres (uncomment to switch off SQLite) ---
+  # postgres:
+  #   image: postgres:16
+  #   restart: unless-stopped
+  #   environment:
+  #     POSTGRES_USER: wabot
+  #     POSTGRES_PASSWORD: wabot
+  #     POSTGRES_DB: wabot
+  #   ports:
+  #     - "5432:5432"
+  #   volumes:
+  #     - pgdata:/var/lib/postgresql/data
+  #   healthcheck:
+  #     test: ["CMD-SHELL", "pg_isready -U wabot -d wabot"]
+  #     interval: 5s
+  #     timeout: 5s
+  #     retries: 10
+
+# volumes:
+#   pgdata:

@@ -1,0 +1,24 @@
+{
+  "about": "Pratham AI Labs offers professional 1:1 and group mentorship for CA, CMA and CS students across India, providing personalized guidance, exam strategy, motivation and career support to help students clear ICAI, ICMAI and ICSI exams with confidence.",
+  "facts": [
+    "We are a mentorship service, not a coaching institute - our mentors guide you on strategy, planning and execution rather than teaching the full syllabus.",
+    "Both 1:1 personal mentorship and small-group mentorship cohorts are available, so you can pick the support style that fits you best.",
+    "All sessions are conducted online over video call, making mentorship accessible to students anywhere in India.",
+    "Sessions are scheduled flexibly between 9 AM and 9 PM IST, including weekends, to work around your study and college timetable.",
+    "Mentorship is delivered in English, Hindi and Telugu so you can communicate comfortably.",
+    "Pricing is transparent and program-based, starting at around ₹4,999, with no hidden charges and easy EMI options on premium programs.",
+    "Every new student gets a free 20-minute intro call to understand their goals before enrolling - no commitment required.",
+    "Each program includes a personalized study plan, regular doubt support, mock-test review and motivation check-ins.",
+    "Refund policy: full refund within 7 days of enrolment if you have attended at most one mentoring session.",
+    "Reach us at hello@prathamailabs.com or on WhatsApp at +91 99000 00001 for any queries."
+  ],
+  "qa": [
+    { "q": "How is mentorship different from coaching?", "a": "Coaching teaches you the syllabus; our mentors help you plan, prioritise, revise smartly, manage exam stress and stay motivated. We complement your classes, not replace them." },
+    { "q": "Do you offer 1:1 mentorship or only group sessions?", "a": "Both. You can choose dedicated 1:1 premium mentorship or join a small-group cohort, depending on your budget and the level of personal attention you need." },
+    { "q": "Which exams and levels do you support?", "a": "We mentor students across all levels of CA (ICAI), CMA (ICMAI) and CS (ICSI) - Foundation, Intermediate and Final." },
+    { "q": "How do I get my doubts cleared?", "a": "You get ongoing doubt support via WhatsApp and scheduled sessions. Subject doubts are routed to the right mentor - Audit, FR, Costing, Law, Tax and more." },
+    { "q": "Is there a free trial before I pay?", "a": "Yes, every student gets a free 20-minute intro call to discuss goals and see if mentorship is right for them before enrolling." },
+    { "q": "What if mentorship is not working for me?", "a": "We offer a full refund within 7 days of enrolment if you have attended at most one session, so you can try us risk-free." },
+    { "q": "How do I enrol?", "a": "Just reply here on WhatsApp or email hello@prathamailabs.com. We will share the brochure, book your free intro call and help you pick the right program." }
+  ]
+}
